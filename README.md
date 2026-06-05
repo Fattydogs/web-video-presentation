@@ -17,11 +17,11 @@ skill maintained by **[@ConardLi](https://github.com/ConardLi)** in
 > documentation belongs to ConardLi.** This fork adds exactly **one feature
 > on top**: PDF input bridging (see "What Changed" below).
 
-| | Upstream | This fork |
-|---|---|---|
-| **Repo** | [`ConardLi/garden-skills`](https://github.com/ConardLi/garden-skills/) | `<your-github-username>/<your-repo>` |
-| **Maintainer** | [@ConardLi](https://github.com/ConardLi) | `<your-github-username>` |
-| **Skill version** | v1.2.1 | v1.2.1 + PDF bridging |
+|                   | Upstream                                                               | This fork                          |
+| ----------------- | ---------------------------------------------------------------------- | ---------------------------------- |
+| **Repo**          | [`ConardLi/garden-skills`](https://github.com/ConardLi/garden-skills/) | `Fattydogs/web-video-presentation` |
+| **Maintainer**    | [@ConardLi](https://github.com/ConardLi)                               | `Fattydogs`                        |
+| **Skill version** | v1.2.1                                                                 | v1.2.1 + PDF bridging              |
 
 If you only need the original skill without PDF input, please use the
 upstream — this fork is only useful if you want to feed it PDFs.
@@ -43,12 +43,12 @@ pipeline.
 
 **Files added / modified in this fork:**
 
-| File | Change | Why |
-|---|---|---|
-| `references/PDF-INPUT.md` | **new** (176 lines) | 4-step PDF → `article.md` bridge + 5 boundary cases (images, formulas, scanned PDFs, encrypted, super-long) + self-check list |
-| `SKILL.md` | edited in 3 places | (1) New row in Phase 1.1 "user input" table for PDF; (2) PDF bridging note in the reading-guide table; (3) New entry in the "related resources" table |
-| `README.md` / `README.zh-CN.md` | **rewritten** | This file. Adds fork attribution + new "PDF input bridging" chapter |
-| All other files | **unchanged** | Scaffold, themes, audio pipeline, TTS providers, recording workflow — all preserved byte-for-byte from upstream |
+| File                            | Change              | Why                                                                                                                                                   |
+| ------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `references/PDF-INPUT.md`       | **new** (176 lines) | 4-step PDF → `article.md` bridge + 5 boundary cases (images, formulas, scanned PDFs, encrypted, super-long) + self-check list                         |
+| `SKILL.md`                      | edited in 3 places  | (1) New row in Phase 1.1 "user input" table for PDF; (2) PDF bridging note in the reading-guide table; (3) New entry in the "related resources" table |
+| `README.md` / `README.zh-CN.md` | **rewritten**       | This file. Adds fork attribution + new "PDF input bridging" chapter                                                                                   |
+| All other files                 | **unchanged**       | Scaffold, themes, audio pipeline, TTS providers, recording workflow — all preserved byte-for-byte from upstream                                       |
 
 > **No code was removed, no themes were modified, no scaffold was touched.**
 > The only behavioral change is that an agent following this skill will
@@ -157,13 +157,13 @@ Write(path="article.md", content="""\
 
 ### Boundary cases the agent must warn about
 
-| Case | What to do |
-|---|---|
+| Case                               | What to do                                                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Images / figures / screenshots** | Read can't read images. User must export figures to `assets/figures/fig-N.png` separately; agent inserts `![desc](assets/figures/fig-N.png)` placeholders in `article.md` |
-| **Formulas** | Kept as LaTeX inline (`$...$`) / display (`$$...$$`); OCR-style errors must be checked back against the source PDF |
-| **Scanned PDF (no text layer)** | Read returns nothing. User must find an HTML version (e.g. arXiv) or run OCR externally |
-| **Encrypted / DRM PDF** | Cannot bypass. User must decrypt with legal authorization first |
-| **Super-long PDF (>50 pages)** | Don't read everything. Ask the user to scope the video to a specific section / page range, or split into multiple videos |
+| **Formulas**                       | Kept as LaTeX inline (`$...$`) / display (`$$...$$`); OCR-style errors must be checked back against the source PDF                                                        |
+| **Scanned PDF (no text layer)**    | Read returns nothing. User must find an HTML version (e.g. arXiv) or run OCR externally                                                                                   |
+| **Encrypted / DRM PDF**            | Cannot bypass. User must decrypt with legal authorization first                                                                                                           |
+| **Super-long PDF (>50 pages)**     | Don't read everything. Ask the user to scope the video to a specific section / page range, or split into multiple videos                                                  |
 
 For the full self-check list, see
 [`references/PDF-INPUT.md`](./references/PDF-INPUT.md#自检清单-pdf-桥接完成时过一遍).
@@ -294,8 +294,8 @@ See [THEMES.md](./references/THEMES.md) for the full token contract, signature f
 
 ### This fork
 
-- **Maintainer**: `<your-github-username>`
-- **Repository**: `<your-github-username>/<your-repo>`
+- **Maintainer**: `Fattydogs`
+- **Repository**: `Fattydogs/web-video-presentation`
 - **Fork version**: v1.2.1 + PDF bridging
 - **Sole addition**: `references/PDF-INPUT.md` (new) + 3 small edits in `SKILL.md` referencing it
 - **All other code**: unchanged from upstream

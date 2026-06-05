@@ -15,11 +15,11 @@
 > **原版的所有设计、方法论、脚手架、主题、文档都归功于 ConardLi。**
 > 本 fork 仅仅在原版之上**新增了 1 项功能**：PDF 输入桥接（见下方"我改了什么"）。
 
-| | 上游原版 | 本 fork |
-|---|---|---|
-| **仓库** | [`ConardLi/garden-skills`](https://github.com/ConardLi/garden-skills/) | `<your-github-username>/<your-repo>` |
-| **维护者** | [@ConardLi](https://github.com/ConardLi) | `<your-github-username>` |
-| **技能版本** | v1.2.1 | v1.2.1 + PDF 桥接 |
+|              | 上游原版                                                               | 本 fork                            |
+| ------------ | ---------------------------------------------------------------------- | ---------------------------------- |
+| **仓库**     | [`ConardLi/garden-skills`](https://github.com/ConardLi/garden-skills/) | `Fattydogs/web-video-presentation` |
+| **维护者**   | [@ConardLi](https://github.com/ConardLi)                               | `Fattydogs`                        |
+| **技能版本** | v1.2.1                                                                 | v1.2.1 + PDF 桥接                  |
 
 如果你不需要 PDF 输入，请直接用上游原版 —— 本 fork 唯一的价值就是支持 PDF 源料。
 
@@ -38,12 +38,12 @@
 
 **本 fork 新增 / 修改的文件：**
 
-| 文件 | 改动 | 原因 |
-|---|---|---|
-| `references/PDF-INPUT.md` | **新增**（176 行） | 4 步 PDF → `article.md` 桥接 + 5 类边界（图、公式、扫描件、加密、超长）+ 自检清单 |
-| `SKILL.md` | 改 3 处 | (1) Phase 1.1 "用户给的东西"表新增 PDF 行；(2) 读取指南表加 PDF 桥接提示；(3) "相关资源"表加新条目 |
-| `README.md` / `README.zh-CN.md` | **重写** | 本文件。新增 fork 致谢 + PDF 输入桥接章节 |
-| 其它所有文件 | **未改动** | 脚手架、主题、音频管线、TTS provider、录屏工作流 —— 全部原样保留 |
+| 文件                            | 改动               | 原因                                                                                               |
+| ------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------- |
+| `references/PDF-INPUT.md`       | **新增**（176 行） | 4 步 PDF → `article.md` 桥接 + 5 类边界（图、公式、扫描件、加密、超长）+ 自检清单                  |
+| `SKILL.md`                      | 改 3 处            | (1) Phase 1.1 "用户给的东西"表新增 PDF 行；(2) 读取指南表加 PDF 桥接提示；(3) "相关资源"表加新条目 |
+| `README.md` / `README.zh-CN.md` | **重写**           | 本文件。新增 fork 致谢 + PDF 输入桥接章节                                                          |
+| 其它所有文件                    | **未改动**         | 脚手架、主题、音频管线、TTS provider、录屏工作流 —— 全部原样保留                                   |
 
 > **没有删任何代码，没有改任何主题，没有动脚手架。** 唯一的行为变化
 > 是：遵循本 skill 的 agent 现在会识别 PDF 输入，并通过
@@ -149,13 +149,13 @@ Write(path="article.md", content="""\
 
 ### 边界情况 —— agent 必须主动告知
 
-| 情况 | 处理 |
-|---|---|
-| **图像 / 截图 / 流程图** | Read 读不了图。用户需手动把图导出为 `assets/figures/fig-N.png`；agent 在 `article.md` 插 `![描述](assets/figures/fig-N.png)` 占位 |
-| **公式 / 数学符号** | 行内 `$...$` / 行间 `$$...$$` 保留；识别错的要回原 PDF 校对 |
-| **扫描件 PDF（无文本层）** | Read 返回空。让用户去找 HTML 版（如 arXiv）或走外部 OCR |
-| **加密 / DRM** | 不能绕过。让用户先在合法授权下解密 |
-| **超长 PDF（> 50 页）** | 不要全读。让用户标出本次视频覆盖的章节 / 页码范围，或建议拆成多集 |
+| 情况                       | 处理                                                                                                                              |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **图像 / 截图 / 流程图**   | Read 读不了图。用户需手动把图导出为 `assets/figures/fig-N.png`；agent 在 `article.md` 插 `![描述](assets/figures/fig-N.png)` 占位 |
+| **公式 / 数学符号**        | 行内 `$...$` / 行间 `$$...$$` 保留；识别错的要回原 PDF 校对                                                                       |
+| **扫描件 PDF（无文本层）** | Read 返回空。让用户去找 HTML 版（如 arXiv）或走外部 OCR                                                                           |
+| **加密 / DRM**             | 不能绕过。让用户先在合法授权下解密                                                                                                |
+| **超长 PDF（> 50 页）**    | 不要全读。让用户标出本次视频覆盖的章节 / 页码范围，或建议拆成多集                                                                 |
 
 完整自检清单见
 [`references/PDF-INPUT.md`](./references/PDF-INPUT.md#自检清单-pdf-桥接完成时过一遍)。
@@ -285,8 +285,8 @@ Skill 内置 **23 套**主题，每套都有独立的设计 DNA —— 不是简
 
 ### 本 fork
 
-- **维护者**：`<your-github-username>`
-- **仓库**：`<your-github-username>/<your-repo>`
+- **维护者**：`Fattydogs`
+- **仓库**：`Fattydogs/web-video-presentation`
 - **fork 版本**：v1.2.1 + PDF 桥接
 - **唯一新增内容**：`references/PDF-INPUT.md`（新增文件）+ `SKILL.md` 中 3 处小修改（挂上 PDF 桥接指引）
 - **其它所有代码**：与上游完全一致
